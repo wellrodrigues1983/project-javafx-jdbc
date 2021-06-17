@@ -64,7 +64,6 @@ public class DepartmentListController implements Initializable, DataChangeListen
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		initializeNodes();
-
 	}
 
 	private void initializeNodes() {
@@ -73,7 +72,6 @@ public class DepartmentListController implements Initializable, DataChangeListen
 
 		Stage stage = (Stage) Main.getMainScene().getWindow();
 		tableViewDepartment.prefHeightProperty().bind(stage.heightProperty());
-
 	}
 
 	public void updateTableView() {
@@ -86,9 +84,9 @@ public class DepartmentListController implements Initializable, DataChangeListen
 		initEditButtons();
 	}
 
-	private void createDialogForm(Department obj, String absolutName, Stage parentStage) {
+	private void createDialogForm(Department obj, String absoluteName, Stage parentStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(absolutName));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			Pane pane = loader.load();
 
 			DepartmentFormController controller = loader.getController();
@@ -102,11 +100,10 @@ public class DepartmentListController implements Initializable, DataChangeListen
 			dialogStage.setScene(new Scene(pane));
 			dialogStage.setResizable(false);
 			dialogStage.initOwner(parentStage);
-			dialogStage.initModality(Modality.WINDOW_MODAL); // enquanto não fechar a janela sobreposta não pode acessar
-																// a janela anterior.
+			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.showAndWait();
 		} catch (IOException e) {
-			Alerts.showAlert("IO Exeption", "Error loading view", e.getMessage(), AlertType.ERROR);
+			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
 		}
 	}
 
@@ -133,5 +130,4 @@ public class DepartmentListController implements Initializable, DataChangeListen
 			}
 		});
 	}
-
 }
